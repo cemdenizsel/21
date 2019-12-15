@@ -40,5 +40,4 @@ public class Deck {
         int r = random.nextInt(52);
         return deck.remove(r);
     }
-
 }
