@@ -1,8 +1,4 @@
 package GameModel;
-
-import Controller.Controller;
-import GUI.View;
-
 import java.io.IOException;
 
 public class main {

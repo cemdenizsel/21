@@ -1,7 +1,5 @@
 package GameModel;
-
 import javax.swing.*;
-import java.awt.image.BufferedImage;
 import java.util.Map;
 
 public class Card {

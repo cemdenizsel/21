@@ -1,5 +1,4 @@
 package GameModel;
-
 import java.io.IOException;
 
 public class Game {
@@ -19,23 +18,13 @@ public class Game {
             total -= bet;
     }
 
-    public Hand getPlayerHand() {
-        return playerHand;
-    }
+    public Hand getPlayerHand() { return playerHand; }
 
-    public Hand getDealerHand() {
-        return dealerHand;
-    }
+    public Hand getDealerHand() { return dealerHand; }
 
-    public Deck getDeck() {
-        return deck;
-    }
+    public Deck getDeck() { return deck; }
 
-    public int getTotal() {
-        return total;
-    }
+    public int getTotal() { return total; }
 
-    public void setTotal(int total) {
-        this.total = total;
-    }
+    public void setTotal(int total) { this.total = total; }
 }

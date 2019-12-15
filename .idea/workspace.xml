@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fdee5ab-4941-4a66-9edc-41b913bfa245" name="Default Changelist" comment="">
+    <list default="true" id="0fdee5ab-4941-4a66-9edc-41b913bfa245" name="Default Changelist" comment="Arranged Card, Deck, Hand and Game classes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameModel/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameModel/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameModel/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameModel/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel/Hand.java" afterDir="false" />
@@ -96,7 +97,7 @@
       <workItem from="1575992689174" duration="2419000" />
       <workItem from="1576337992900" duration="591000" />
       <workItem from="1576340805339" duration="1991000" />
-      <workItem from="1576405877870" duration="6900000" />
+      <workItem from="1576405877870" duration="7664000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented Deck class.&#10;Made necessary changes to the Card class">
       <created>1576350019519</created>
@@ -112,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576350154516</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implemented Game class.">
+      <created>1576414429749</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1576414429749</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -144,33 +152,35 @@
     <MESSAGE value="Implemented Card class." />
     <MESSAGE value="Implemented Deck class.&#10;Made necessary changes to the Card class" />
     <MESSAGE value="Added the resources file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the resources file" />
+    <MESSAGE value="Implemented Game class." />
+    <MESSAGE value="Arranged Card, Deck, Hand and Game classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Arranged Card, Deck, Hand and Game classes." />
   </component>
   <component name="WindowStateProjectService">
     <state x="570" y="346" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1576337998180">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="570" y="346" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1576337998180" />
-    <state x="377" y="47" key="CommitChangelistDialog2" timestamp="1576342779271">
+    <state x="441" y="64" key="CommitChangelistDialog2" timestamp="1576415179566">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="377" y="47" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1576342779271" />
-    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1576409786760">
+    <state x="441" y="64" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1576415179566" />
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1576415082380">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576409786760" />
-    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1576409786758">
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576415082380" />
+    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1576415082379">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1576409786758" />
-    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1576409786758">
+    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1576415082379" />
+    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1576415082378">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1576409786758" />
-    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1576409786759">
+    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1576415082378" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1576415082379">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1576409786759" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1576415082379" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1576342584827">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
