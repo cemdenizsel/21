@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fdee5ab-4941-4a66-9edc-41b913bfa245" name="Default Changelist" comment="Implemented View Class.">
-      <change afterPath="$PROJECT_DIR$/resources/background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/StartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/StartView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameModel/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameModel/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/RoundView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RoundView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +50,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576350474849" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
@@ -62,6 +59,18 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -76,18 +85,6 @@
         <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
