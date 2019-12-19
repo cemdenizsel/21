@@ -1,5 +1,8 @@
 package Controller;
 
+import GUI.View;
+import GameModel.Game;
+
 public class Controller {
 
     private Game game_model;

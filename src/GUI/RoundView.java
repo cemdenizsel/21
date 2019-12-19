@@ -37,7 +37,6 @@ public class RoundView extends View {
         stayButton.setText("  Stay");
         stayButton.setEnabled(false);
 
-
         dealerLabel.setText("  Dealer:  ");
         playerLabel.setText("  Player:  ");
 
@@ -53,19 +52,11 @@ public class RoundView extends View {
 
     }
 
-    public JLabel getDealerLabel() {
-        return dealerLabel;
-    }
+    public JLabel getDealerLabel() { return dealerLabel; }
 
-    public JLabel getPlayerLabel() {
-        return playerLabel;
-    }
+    public JLabel getPlayerLabel() { return playerLabel; }
 
-    public void setDealerLabel(JLabel dealerLabel) {
-        this.dealerLabel = dealerLabel;
-    }
+    public void setDealerLabel(JLabel dealerLabel) { this.dealerLabel = dealerLabel; }
 
-    public void setPlayerLabel(JLabel playerLabel) {
-        this.playerLabel = playerLabel;
-    }
+    public void setPlayerLabel(JLabel playerLabel) { this.playerLabel = playerLabel; }
 }
