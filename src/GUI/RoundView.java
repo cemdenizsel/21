@@ -2,11 +2,9 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class RoundView extends JPanel {
 
-    private JPanel panel;
     private JPanel playerCardPanel;
     private JPanel dealerCardPanel;
     private JLabel dealerLabel;
