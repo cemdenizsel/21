@@ -12,6 +12,7 @@ public class Controller {
     public Controller(Game game_model, View game_view) {
         this.game_model = game_model;
         this.game_view = game_view;
+
     }
 
     public View getGame_view() {

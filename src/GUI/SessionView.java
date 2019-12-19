@@ -1,4 +1,8 @@
 package GUI;
 
-public class SessionView extends View {
+import javax.swing.*;
+
+public class SessionView extends JPanel {
+
+
 }

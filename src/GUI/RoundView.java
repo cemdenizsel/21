@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class RoundView extends View {
+public class RoundView extends JPanel {
 
     private JPanel panel;
     private JPanel playerCardPanel;
@@ -24,31 +24,50 @@ public class RoundView extends View {
     JLabel dealerCard1;
     JLabel dealerCardHit;
 
-    public RoundView () throws IOException {
+    public RoundView (){
         super();
+        dealerCardPanel = new JPanel();
+        playerCardPanel = new JPanel();
+        hitButton = new JButton();
+        stayButton = new JButton();
+        pauseButton = new JButton();
+        resumeButton = new JButton();
 
-        panel.setBackground(new Color(0, 122, 0));
+        dealerLabel = new JLabel();
+        playerLabel = new JLabel();
+
+        playerCard1 = new JLabel();
+        playerCard2 = new JLabel();
+        dealerCard0 = new JLabel();
+        dealerCard1 = new JLabel();
+        playerCardHit = new JLabel();
+        dealerCard2 = new JLabel();
+        dealerCard2 = new JLabel();
+        dealerCardHit = new JLabel();
+
+
+        setBackground(new Color(0, 122, 0));
         dealerCardPanel.setBackground(new Color(0, 122, 0));
         playerCardPanel.setBackground(new Color(0, 122, 0));
 
-        panel.setLayout(new FlowLayout());
+        setLayout(new FlowLayout());
         hitButton.setText("  Hit");
-        hitButton.setEnabled(false);
+        hitButton.setEnabled(true);
         stayButton.setText("  Stay");
-        stayButton.setEnabled(false);
+        stayButton.setEnabled(true);
 
         dealerLabel.setText("  Dealer:  ");
         playerLabel.setText("  Player:  ");
 
-        panel.add(hitButton);
-        panel.add(stayButton);
+        add(hitButton);
+        add(stayButton);
         playerCardPanel.add(playerLabel);
         dealerCardPanel.add(dealerLabel);
 
         setLayout(new BorderLayout());
-        add(panel, BorderLayout.NORTH);
         add(dealerCardPanel, BorderLayout.CENTER);
         add(playerCardPanel, BorderLayout.SOUTH);
+        setVisible(true);
 
     }
 
