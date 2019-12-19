@@ -1,16 +1,24 @@
 package GUI;
 
 import Controller.Controller;
+import GameModel.Game;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class View extends JFrame {
-    //private JFrame frame;
+
     private Controller controller;
     private StartView startView;
     private SessionView sessionView;
     private RoundView roundView;
 
     public View(){
+        controller = new Controller(this);
+
+        startView = new StartView();
+        sessionView = new SessionView();
+        roundView = new RoundView();
 
         setTitle("Blackjack");
         setSize(900, 700);
@@ -23,26 +31,18 @@ public class View extends JFrame {
 
     public Controller getController() { return controller; }
 
-    //public JFrame getFrame(){}
+    public void setToRoundView() { setContentPane(roundView); }
 
+    public void setToStartView() {setContentPane(startView); }
 
-    public void initRoundView(){
-        roundView = new RoundView();
-        add(roundView);
-        revalidate();
-        setVisible(true);
-    }
+    public void setToSessionView(){ setContentPane(sessionView); }
 
-    public void initStartView(){
-        startView = new StartView();
-        add(startView);
-    }
+    public JPanel getSessionView() { return sessionView;}
 
-    public void initSessionView(){
-        sessionView = new SessionView();
-        add(sessionView);
+    public JPanel getRoundView() { return roundView;}
 
-    }
+    public JPanel getStartView() { return startView;}
+
 }
 
 

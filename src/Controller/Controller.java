@@ -5,21 +5,25 @@ import GameModel.Game;
 
 public class Controller {
 
-    private Game game_model;
-    private View game_view;
+    private Game game;
+    private View view;
 
-
-    public Controller(Game game_model, View game_view) {
-        this.game_model = game_model;
-        this.game_view = game_view;
-
+    public Controller(Game game) {
+        this.game = game;
+    }
+    public Controller(View view){
+        this.view = view;
+    }
+    public Controller(Game game, View view){
+        this.view = view;
+        this.game = game;
     }
 
-    public View getGame_view() {
-        return game_view;
-    }
 
-    public void setGame_view(View game_view) {
-        this.game_view = game_view;
-    }
+    public View getGameView() { return view; }
+
+    public void setGameView(View view) { this.view = view; }
+
+    public Game getGameModel(){ return game;}
+
 }
