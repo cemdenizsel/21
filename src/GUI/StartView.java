@@ -1,23 +1,59 @@
 package GUI;
 
+import Controller.Controller;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
 
 public class StartView extends JPanel {
+    private JButton startButton;
+    private JButton exitButton;
 
-   public StartView() {
+    public StartView(final Controller controller) {
 
-       JDialog.setDefaultLookAndFeelDecorated(true);
-       int response = JOptionPane.showConfirmDialog(null, "Are you older than 18 years old?", "Validation",
-               JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-       if (response == JOptionPane.NO_OPTION) {
-           System.exit(0);
-       } else if (response == JOptionPane.YES_OPTION) {
-           System.out.println();
-       } else if (response == JOptionPane.CLOSED_OPTION) {
-           System.exit(0);
-       }
-   }
-   }
+        super(new GridBagLayout());
+        setBackground(new Color(0,122,0));
+
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+
+
+        startButton = new JButton("Start Game");
+        //controller.startPressed(startButton);
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    controller.startPressed();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+        exitButton = new JButton("Exit Game");
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.exitPressed();
+            }
+        });
+
+        add(startButton,gridBagConstraints);
+        add(exitButton,gridBagConstraints);
+        setVisible(true);
+
+    }
+
+
+    public JButton getStartButton() { return startButton;}
+
+    public JButton getExitButton() { return exitButton; }
+
+
+}
 
 

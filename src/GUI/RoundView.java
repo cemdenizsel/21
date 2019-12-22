@@ -1,5 +1,7 @@
 package GUI;
 
+import Controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -22,7 +24,7 @@ public class RoundView extends JPanel {
     JLabel dealerCard1;
     JLabel dealerCardHit;
 
-    public RoundView (){
+    public RoundView (final Controller controller){
         super();
         dealerCardPanel = new JPanel();
         playerCardPanel = new JPanel();

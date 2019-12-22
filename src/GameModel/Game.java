@@ -7,10 +7,14 @@ public class Game {
     private Deck deck;
     private int total = 500;
 
-    public Game() throws IOException {
+    public Game()  throws IOException {
+
+    }
+
+    public void dealHands() throws IOException{
         deck = new Deck();
-        playerHand = new Hand();
-        dealerHand = new Hand();
+        playerHand = new Hand(deck);
+        dealerHand = new Hand(deck);
     }
 
     public void bet(int bet) {
@@ -26,5 +30,17 @@ public class Game {
 
     public int getTotal() { return total; }
 
-    public void setTotal(int total) { this.total = total; }
+    public void addToTotal(int bet) { this.total += bet; }
+
+    public void hit(){
+        Card card = deck.removeRandomCard();
+        playerHand.drawCard(card);
+    }
+
+    public void setDealerHand(){
+        while (dealerHand.getValue()<16)
+        {
+            dealerHand.drawCard(deck.removeRandomCard());
+        }
+    }
 }

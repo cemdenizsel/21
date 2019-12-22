@@ -1,9 +1,10 @@
 package GameModel;
-import javax.swing.*;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Random;
+        import javax.swing.*;
+        import java.io.IOException;
+        import java.util.ArrayList;
+        import java.util.Collections;
+        import java.util.Map;
+
 
 public class Deck {
     private ArrayList<Card> deck;
@@ -30,8 +31,8 @@ public class Deck {
     }
 
     public Card removeRandomCard(){
-        Random random = new Random();
-        int r = random.nextInt(52);
-        return deck.remove(r);
+
+        Collections.shuffle(deck);
+        return deck.remove(0);
     }
 }

@@ -38,4 +38,15 @@ public class Card {
 
     public void setImage(ImageIcon image) { this.image =  image; }
 
+    @Override
+    public String toString() {
+        return "Card{" +
+                "face=" + face +
+                ", suit='" + suit + '\'' +
+                ", value=" + value +
+                ", image=" + image +
+                ", rank='" + rank + '\'' +
+                '}';
+    }
+
 }

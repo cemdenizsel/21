@@ -6,13 +6,15 @@ public class Hand {
     private ArrayList<Card> hand;
     private int value = 0;
     private int numberOfAces = 0;
+    private Deck deck;
 
-    public Hand()  throws IOException {
+    public Hand(Deck deck)  throws IOException {
         this.hand = new ArrayList<Card>();
-        Deck deck = new Deck();
+        this.deck = deck;
         drawCard(deck.removeRandomCard());
         drawCard(deck.removeRandomCard());
         adjustForAce();
+
     }
 
     public void drawCard(Card card){
@@ -35,6 +37,9 @@ public class Hand {
 
     public void setValue(int value) { this.value = value; }
 
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
 }
 
 
