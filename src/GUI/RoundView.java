@@ -23,12 +23,14 @@ public class RoundView extends JPanel {
     private JLabel timeLabel;
     private JLabel playerCard1;
     private JLabel playerCard2;
+    private JLabel playerCardHit;
     private JLabel dealerCard0;
     private JLabel dealerCard1;
     private JLabel dealerCard2;
     private JLabel dealerCard3;
     private JLabel dealerCard4;
     private JLabel dealerCard5;
+    private JLabel dealerCard6;
     private Hand dealerHand;
     private Hand playerHand;
     private Controller controller;
@@ -120,8 +122,8 @@ public class RoundView extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 int gameResult = controller.stayPressed();
                 setDealersCardPositions();
+                topPanel.validate();
                 dealerLabel.setText("Dealer: " + dealerHand.getValue());
-                validate();
                 if(gameResult == 0){
                     JOptionPane.showMessageDialog(bottomPanel.getParent(),"You are busted!!! GAME OVER!");
                     controller.roundFinished();
@@ -186,6 +188,7 @@ public class RoundView extends JPanel {
         dealerCard3 = new JLabel();
         dealerCard4 = new JLabel();
         dealerCard5 = new JLabel();
+        dealerCard6 = new JLabel();
 
         dealerCard0.setBounds(711,41,128,159);
         dealerCard1.setBounds(825,41,128,159);
@@ -203,6 +206,7 @@ public class RoundView extends JPanel {
         dealerCardLabels.add(dealerCard3);
         dealerCardLabels.add(dealerCard4);
         dealerCardLabels.add(dealerCard5);
+        dealerCardLabels.add(dealerCard6);
 
 
 
@@ -228,15 +232,18 @@ public class RoundView extends JPanel {
     public void setDealersCardPositions(){
         int sizeOfDealerHand= dealerHand.getHand().size();
         if(sizeOfDealerHand > 2) {
+            int firstCardsX = 0;
+            int firstCardsY = 0;
             for (int i = 0; i < sizeOfDealerHand; ++i) {
                 JLabel label = dealerCardLabels.get(i);
-                if(i<2){
-                    label.setLocation(label.getX()-128,label.getY());
-
+                if(i==0){
+                    label.setLocation(label.getX()-(128*(sizeOfDealerHand-2)),label.getY());
+                    firstCardsX = label.getX();
+                    firstCardsY = label.getY();
                 }else{
-                    label.setLocation((dealerCardLabels.get(i-1).getX()+124),dealerCard0.getY());
+                    label.setLocation(firstCardsX+(i*128),firstCardsY);
+                    label.setIcon(dealerHand.getHand().get(i).getImage());
                 }
-                label.setIcon(dealerHand.getHand().get(i).getImage());
                 topPanel.add(label);
             }
         }else
