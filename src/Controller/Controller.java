@@ -42,6 +42,7 @@ public class Controller {
     }
 
     public void withdrawPressed() {
+        view.getStartView().updateTotal();
         view.setToStartView();
     }
 

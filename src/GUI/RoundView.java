@@ -62,6 +62,7 @@ public class RoundView extends JPanel {
         dealerHand = controller.getGame().getDealerHand();
 
         setTimer();
+        timer.restart();
         setBottomPanel();
         setTopPanel();
 
@@ -130,6 +131,7 @@ public class RoundView extends JPanel {
                 bottomPanel.add(newCard);
                 playerLabel.setText("Player: " + playerHand.getValue());
                 if(!controller.checkPlayerNotBusted()) {
+                    timer.stop();
                     JOptionPane.showMessageDialog(bottomPanel.getParent(),"You are busted!!! GAME OVER!");
                     controller.roundFinished();
 
@@ -189,12 +191,15 @@ public class RoundView extends JPanel {
         topPanel.validate();
         dealerLabel.setText("Dealer: " + dealerHand.getValue());
         if(gameResult == 0){
+            timer.stop();
             JOptionPane.showMessageDialog(bottomPanel.getParent(),"You are busted!!! GAME OVER!");
             controller.roundFinished();
         }else if(gameResult == 1){
+            timer.stop();
             JOptionPane.showMessageDialog(bottomPanel.getParent(),"Congrats, You Win!!!");
             controller.roundFinished();
         }else{
+            timer.stop();
             JOptionPane.showMessageDialog(bottomPanel.getParent(),"Game Tied!!!");
             controller.gameTied();
         }
