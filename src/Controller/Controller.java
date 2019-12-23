@@ -20,6 +20,7 @@ public class Controller {
     private Thread thread;
 
 
+
     public Controller(Game game) {
         this.game = game;
         this.view = new View(this);
