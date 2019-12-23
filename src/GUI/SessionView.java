@@ -25,7 +25,7 @@ public class SessionView extends JPanel {
     SessionView(final Controller controller){
         super();
         this.controller = controller;
-        this.backOfCard = new ImageIcon("C:\\Users\\BerkerGurcay\\IdeaProjects\\MVC\\resources\\blue.png");
+        this.backOfCard = new ImageIcon("resources\\blue.png");
 
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         setBackground(new Color(0,122,0));
@@ -91,7 +91,7 @@ public class SessionView extends JPanel {
                     totalAmount.setText("Your total is: " +controller.getTotal());
 
                 }catch (NumberFormatException ex){
-                    JOptionPane.showMessageDialog(bottomPanel,"Please enter a number!");
+                    JOptionPane.showMessageDialog(topPanel.getParent(),"Please enter a number!");
                 }catch (IOException exception){
                     exception.printStackTrace();
                 }

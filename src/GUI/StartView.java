@@ -2,7 +2,7 @@ package GUI;
 
 import Controller.Controller;
 
-import javax.imageio.ImageIO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,7 +23,7 @@ public class StartView extends JPanel {
 
 
         startButton = new JButton("Start Game");
-        //controller.startPressed(startButton);
+
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

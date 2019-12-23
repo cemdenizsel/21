@@ -104,6 +104,7 @@ public class RoundView extends JPanel {
                 int gameResult = controller.stayPressed();
                 setDealersCardPositions();
                 dealerLabel.setText("Dealer: " + dealerHand.getValue());
+                validate();
                 if(gameResult == 0){
                     JOptionPane.showMessageDialog(bottomPanel.getParent(),"You are busted!!! GAME OVER!");
                     controller.roundFinished();
@@ -172,7 +173,7 @@ public class RoundView extends JPanel {
         dealerCard5.setSize(128,159);
 
         dealerCard0.setIcon(dealerHand.getHand().get(0).getImage());
-        dealerCard1.setIcon(new ImageIcon("C:\\Users\\BerkerGurcay\\IdeaProjects\\MVC\\resources\\blue.png"));
+        dealerCard1.setIcon(new ImageIcon("resources\\blue.png"));
 
         dealerCardLabels.add(dealerCard0);
         dealerCardLabels.add(dealerCard1);

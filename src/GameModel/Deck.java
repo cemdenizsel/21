@@ -18,7 +18,7 @@ public class Deck {
         for(String suit:suits){
             for(String rank: ranks){
                 int value = values.get(rank);
-                String imageFile = Integer.toString(value) + suit.charAt(0);
+                String imageFile = rank + suit.charAt(0);
                 String filedir = "resources/" +imageFile+ ".jpg";
                 ImageIcon bf = new ImageIcon(filedir);
                 deck.add(new Card(false,suit,rank,bf));
