@@ -37,6 +37,9 @@ public class RoundView extends JPanel {
     private ArrayList<JLabel> playerCardLabels;
     private ArrayList<JLabel> dealerCardLabels;
 
+    private JLabel timerLabel = new JLabel("Timer");
+    int timeLeft = 50;
+
     public RoundView (final Controller controller){
         super();
         this.controller = controller;
@@ -57,7 +60,7 @@ public class RoundView extends JPanel {
         playerHand = controller.getGame().getPlayerHand();
         dealerHand = controller.getGame().getDealerHand();
 
-
+        setTimer();
         setBottomPanel();
         setDealerCardPanel();
 
@@ -145,6 +148,7 @@ public class RoundView extends JPanel {
 
         playerCard1.setBounds(711,169,128,159);
         playerCard2.setBounds(825,169,128,159);
+        timerLabel.setBounds(500,160,120,150);
 
         playerCard1.setIcon(playerHand.getHand().get(0).getImage());
         playerCard2.setIcon(playerHand.getHand().get(1).getImage());
@@ -154,19 +158,25 @@ public class RoundView extends JPanel {
 
         playerCardLabels.add(playerCard1);
         playerCardLabels.add(playerCard2);
-
-
-
-
+        bottomPanel.add(timerLabel);
 
         bottomPanel.add(hitButton);
         bottomPanel.add(stayButton);
         bottomPanel.add(playerLabel);
-
-
-
-
     }
+
+    public void setTimer(){
+        ActionListener taskPerformer = new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                timeLeft--;
+                timerLabel.setText("" + timeLeft);
+            }
+        };
+        Timer timer = new Timer(1000 ,taskPerformer);
+        //timer.setRepeats(false);
+        timer.start();
+    }
+
 
     public void setDealerCardPanel() {
         topPanel.setLayout(null);
