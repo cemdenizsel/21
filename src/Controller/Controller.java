@@ -95,5 +95,29 @@ public class Controller {
         }
     }
 
+    public void gameTied() {
+        game.addToTotal(betAmount);
+        view.getSessionView().setTotalLabel();
+        view.setToSessionView();
+    }
+
+    public boolean checkPlayerNotBusted(){
+        return !(playersValue>21);
+    }
+
+    public void roundFinished(){
+        view.getSessionView().setTotalLabel();
+        view.setToSessionView();
+    }
+
+    public int stayPressed() {
+
+        game.setDealerHand();
+        dealersValue = game.getDealerHand().getValue();
+        playersValue = game.getPlayerHand().getValue();
+        return checkWin();
+
+    }
+
 
 }
