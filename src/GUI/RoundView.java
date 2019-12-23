@@ -20,6 +20,7 @@ public class RoundView extends JPanel {
     private JButton pauseButton;
     private JButton resumeButton;
 
+    private JLabel timeLabel;
     private JLabel playerCard1;
     private JLabel playerCard2;
     private JLabel dealerCard0;
@@ -69,7 +70,7 @@ public class RoundView extends JPanel {
         bottomPanel.setLayout(null);
         bottomPanel.setBackground(new Color(0,122,0));
 
-
+        timeLabel =
 
         playerLabel = new JLabel("Player: " +playerHand.getValue() );
         playerLabel.setBounds(780,350,100,50);
@@ -80,6 +81,22 @@ public class RoundView extends JPanel {
 
         stayButton = new JButton("Stay");
         stayButton.setBounds(1160,268,100,25);
+
+
+
+        pauseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.pausePressed();
+            }
+        });
+
+        resumeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.resumePressed();
+            }
+        });
 
         hitButton.addActionListener(new ActionListener() {
             @Override
@@ -115,8 +132,6 @@ public class RoundView extends JPanel {
                     JOptionPane.showMessageDialog(bottomPanel.getParent(),"Game Tied!!!");
                     controller.gameTied();
                 }
-
-
             }
         });
 
@@ -148,6 +163,7 @@ public class RoundView extends JPanel {
 
 
 
+
     }
 
     public void setDealerCardPanel() {
@@ -157,6 +173,12 @@ public class RoundView extends JPanel {
         dealerLabel.setBounds(780,5,100,16);
 
         topPanel.add(dealerLabel);
+
+        pauseButton = new JButton("Pause");
+        pauseButton.setBounds(1160,66,100,25);
+
+        resumeButton = new JButton("Resume");
+        resumeButton.setBounds(1160,91,100,25);
 
         dealerCard0 = new JLabel();
         dealerCard1 = new JLabel();
@@ -173,7 +195,7 @@ public class RoundView extends JPanel {
         dealerCard5.setSize(128,159);
 
         dealerCard0.setIcon(dealerHand.getHand().get(0).getImage());
-        dealerCard1.setIcon(new ImageIcon("resources\\blue.png"));
+        dealerCard1.setIcon(new ImageIcon("resources/blue.png"));
 
         dealerCardLabels.add(dealerCard0);
         dealerCardLabels.add(dealerCard1);
@@ -187,6 +209,8 @@ public class RoundView extends JPanel {
         topPanel.add(dealerCard0);
         topPanel.add(dealerCard1);
         topPanel.add(dealerLabel);
+        topPanel.add(pauseButton);
+        topPanel.add(resumeButton);
 
     }
 

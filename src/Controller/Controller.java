@@ -17,10 +17,13 @@ public class Controller {
     private final int LOSE = 0;
     private final int TIE = 2;
 
+    private Thread thread;
+
 
     public Controller(Game game) {
         this.game = game;
         this.view = new View(this);
+        thread = new Thread();
     }
 
     public int getTotal() {
@@ -122,11 +125,11 @@ public class Controller {
 
     }
 
-
     public void pausePressed() {
 
     }
 
     public void resumePressed() {
+
     }
 }
