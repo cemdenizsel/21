@@ -5,7 +5,7 @@ import GUI.View;
 import GameModel.Game;
 
 import javax.swing.*;
-import java.io.IOException;
+import java.io.*;
 
 public class Controller {
     private Game game;
@@ -16,8 +16,9 @@ public class Controller {
     private final int WIN = 1;
     private final int LOSE = 0;
     private final int TIE = 2;
+    private File highscoreTxt;
 
-    private Thread thread;
+    private int remainingPauses;
 
     private Timer timer;
 
@@ -25,6 +26,8 @@ public class Controller {
     public Controller(Game game) {
         this.game = game;
         this.view = new View(this);
+
+        highscoreTxt = new File("highscore.txt");
 
     }
 
@@ -41,12 +44,22 @@ public class Controller {
         System.exit(0);
     }
 
-    public void withdrawPressed() {
+    public void withdrawPressed() throws FileNotFoundException, UnsupportedEncodingException {
+       if(getHighestScore()<game.getTotal()){
+           try {
+               BufferedWriter br = new BufferedWriter(new FileWriter(highscoreTxt));
+               br.write(""+game.getTotal());
+               br.close();
+           }catch (IOException ex){
+               ex.printStackTrace();
+           }
+       }
         view.getStartView().updateTotal();
         view.setToStartView();
     }
 
     public void betPressed(int betAmount) throws IOException {
+        remainingPauses = 3;
         this.betAmount = betAmount;
         if (betAmount > getTotal()) {
             JOptionPane.showMessageDialog(view, "You total is lower than your bet, Please lower your bet amount");
@@ -72,8 +85,10 @@ public class Controller {
     }
 
     public int checkWin() {
+
         if (playersValue > 21)
         {
+
             return LOSE;
         }
         else if (playersValue == 21 && dealersValue != 21)
@@ -125,11 +140,13 @@ public class Controller {
         game.setDealerHand();
         dealersValue = game.getDealerHand().getValue();
         playersValue = game.getPlayerHand().getValue();
+
         return checkWin();
 
     }
 
     public void pausePressed() {
+        remainingPauses--;
         timer = view.getRoundView().getTimer();
         timer.stop();
 
@@ -138,5 +155,24 @@ public class Controller {
     public void resumePressed() {
         timer.start();
     }
+
+
+    public int getRemainingPauses(){
+        return remainingPauses;
+    }
+
+    public int getHighestScore(){
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("highscore.txt"));
+            return Integer.parseInt(bufferedReader.readLine());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
 }
+
 

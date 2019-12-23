@@ -4,8 +4,6 @@ import Controller.Controller;
 import GameModel.Game;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
 
 public class View extends JFrame {
 
@@ -28,7 +26,7 @@ public class View extends JFrame {
         setLayout(null);
         setResizable(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        //setVisible(true);
+
 
         JDialog.setDefaultLookAndFeelDecorated(true);
         int response = JOptionPane.showConfirmDialog(null, "Are you older than 18 years old?", "Validation",
@@ -43,16 +41,12 @@ public class View extends JFrame {
         setVisible(true);
     }
 
-    public Controller getController() { return controller; }
-
     public void setToRoundView() {
         roundView = new RoundView(controller);
         remove(getContentPane());
         repaint();
         setContentPane(roundView);
         validate();
-        //setVisible(true);
-
     }
 
     public void setToStartView() {
@@ -60,10 +54,6 @@ public class View extends JFrame {
         repaint();
         setContentPane(startView);
         validate();
-        //setVisible(true);
-        //setContentPane(startView);
-
-
     }
 
     public void setToSessionView(){
@@ -72,8 +62,6 @@ public class View extends JFrame {
         repaint();
         setContentPane(sessionView);
         validate();
-        //setVisible(true);
-
     }
 
     public SessionView getSessionView() { return sessionView;}

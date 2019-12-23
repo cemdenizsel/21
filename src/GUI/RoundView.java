@@ -22,7 +22,6 @@ public class RoundView extends JPanel {
 
     private JLabel playerCard1;
     private JLabel playerCard2;
-    private JLabel playerCardHit;
     private JLabel dealerCard0;
     private JLabel dealerCard1;
     private JLabel dealerCard2;
@@ -30,6 +29,7 @@ public class RoundView extends JPanel {
     private JLabel dealerCard4;
     private JLabel dealerCard5;
     private JLabel dealerCard6;
+    private JLabel remainingPausesLabel;
     private Hand dealerHand;
     private Hand playerHand;
     private Controller controller;
@@ -37,9 +37,9 @@ public class RoundView extends JPanel {
     private ArrayList<JLabel> dealerCardLabels;
 
     private Timer timer;
-    private JLabel timerLabel ;
+    private JLabel timerLabel;
     int duration = 30;
-    int  timeLeft;
+
 
     public RoundView (final Controller controller){
         super();
@@ -57,6 +57,7 @@ public class RoundView extends JPanel {
         resumeButton = new JButton("Resume");
 
         timerLabel =  new JLabel("Time left: 30 ");
+        remainingPausesLabel = new JLabel();
 
         playerHand = controller.getGame().getPlayerHand();
         dealerHand = controller.getGame().getDealerHand();
@@ -98,12 +99,12 @@ public class RoundView extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                controller.pausePressed();
-                hitButton.setEnabled(false);
-                stayButton.setEnabled(false);
-                pauseButton.setEnabled(false);
-                resumeButton.setEnabled(true);
-
+                    controller.pausePressed();
+                    remainingPausesLabel.setText("Remaining pauses: " + controller.getRemainingPauses());
+                    hitButton.setEnabled(false);
+                    stayButton.setEnabled(false);
+                    pauseButton.setEnabled(false);
+                    resumeButton.setEnabled(true);
 
             }
         });
@@ -116,7 +117,8 @@ public class RoundView extends JPanel {
                 hitButton.setEnabled(true);
                 stayButton.setEnabled(true);
                 resumeButton.setEnabled(false);
-                pauseButton.setEnabled(true);
+                if(controller.getRemainingPauses()!=0)
+                    pauseButton.setEnabled(true);
 
             }
         });
@@ -134,7 +136,9 @@ public class RoundView extends JPanel {
                     timer.stop();
                     JOptionPane.showMessageDialog(bottomPanel.getParent(),"You are busted!!! GAME OVER!");
                     controller.roundFinished();
-
+                }
+                if(playerHand.getValue() == 21){
+                    hitButton.setEnabled(false);
                 }
 
             }
@@ -164,7 +168,8 @@ public class RoundView extends JPanel {
 
         playerCardLabels.add(playerCard1);
         playerCardLabels.add(playerCard2);
-
+        if(playerHand.getValue() == 21)
+            hitButton.setEnabled(false);
 
         bottomPanel.add(hitButton);
         bottomPanel.add(stayButton);
@@ -176,13 +181,14 @@ public class RoundView extends JPanel {
             public void actionPerformed(ActionEvent evt) {
                 duration--;
                 timerLabel.setText("Time Left: " + duration);
-                if(duration ==0){
+                if(duration == 0){
                     stay();
                 }
             }
         };
          timer = new Timer(1000 ,taskPerformer);
-        timer.start();
+         timer.start();
+
     }
 
     private void stay() {
@@ -216,6 +222,8 @@ public class RoundView extends JPanel {
         topPanel.add(timerLabel);
         topPanel.add(dealerLabel);
 
+        remainingPausesLabel.setText("Remaining pauses: " + controller.getRemainingPauses());
+        remainingPausesLabel.setBounds(1160,30,150,25);
 
         pauseButton.setBounds(1160,66,100,25);
 
@@ -256,6 +264,7 @@ public class RoundView extends JPanel {
         topPanel.add(dealerLabel);
         topPanel.add(pauseButton);
         topPanel.add(resumeButton);
+        topPanel.add(remainingPausesLabel);
 
     }
 

@@ -4,23 +4,23 @@ import Controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import java.awt.event.*;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class SessionView extends JPanel {
     private JPanel topPanel;
     private JPanel bottomPanel;
+
     private JButton withdrawButton;
     private JButton betButton;
-    private JLabel totalAmount;
 
+    private JLabel totalAmount;
 
     private ImageIcon backOfCard;
 
-    Controller controller;
+    private Controller controller;
 
     SessionView(final Controller controller){
         super();
@@ -43,6 +43,7 @@ public class SessionView extends JPanel {
 
     }
 
+
     public void setBottomPanel(){
         bottomPanel.setLayout(null);
 
@@ -58,12 +59,11 @@ public class SessionView extends JPanel {
             @Override
             public void focusGained(FocusEvent e) {
                 super.focusGained(e);
-                betField.setText(null);
+                betField.setText("");
+
             }
+
         });
-
-
-
 
         totalAmount = new JLabel("Your total is: " +controller.getTotal() );
         totalAmount.setBounds(1045,268,150,25);
@@ -79,7 +79,13 @@ public class SessionView extends JPanel {
         withdrawButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.withdrawPressed();
+                try {
+                    controller.withdrawPressed();
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                } catch (UnsupportedEncodingException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 

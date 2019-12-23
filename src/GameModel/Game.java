@@ -43,8 +43,4 @@ public class Game {
             dealerHand.drawCard(deck.removeRandomCard());
         }
     }
-
-    public void pause() {
-
-    }
 }

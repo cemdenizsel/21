@@ -15,23 +15,24 @@ public class StartView extends JPanel {
     private JButton exitButton;
     private Controller controller;
 
-    private JLabel maxScoreLabel;
+    private JLabel highestScoreLabel;
 
-    int maxScore ;
+    private int maxScore;
 
     public StartView(final Controller controller) {
 
-        super(new GridBagLayout());
+        super();
+        setLayout(null);
         this.controller = controller;
         setBackground(new Color(0,122,0));
 
-        maxScore = controller.getTotal();
-        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        maxScore = controller.getHighestScore();
 
 
-
-        maxScoreLabel = new JLabel("Max Score: "+ maxScore);
+        highestScoreLabel = new JLabel("Highest Score: "+ maxScore);
+        highestScoreLabel.setBounds(711,31,125,25);
         startButton = new JButton("Start Game");
+        startButton.setBounds(711,375,100,25);
 
         startButton.addActionListener(new ActionListener() {
             @Override
@@ -44,6 +45,8 @@ public class StartView extends JPanel {
             }
         });
         exitButton = new JButton("Exit Game");
+        exitButton.setBounds(711,425,100,25);
+
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,22 +54,17 @@ public class StartView extends JPanel {
             }
         });
 
-        add(maxScoreLabel,gridBagConstraints);
-        add(startButton,gridBagConstraints);
-        add(exitButton,gridBagConstraints);
+        add(highestScoreLabel);
+        add(startButton);
+        add(exitButton);
         setVisible(true);
     }
 
-
-    public JButton getStartButton() { return startButton; }
-
-    public JButton getExitButton() { return exitButton; }
-
-
     public void updateTotal(){
-        if(controller.getTotal()>500)
+        if(controller.getTotal()>500){
         maxScore = controller.getTotal();
-        maxScoreLabel.setText("Max Score: "+ maxScore);
+        highestScoreLabel.setText("Highest Score: "+ maxScore);
+        }
     }
 
 }
