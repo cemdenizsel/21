@@ -20,7 +20,6 @@ public class RoundView extends JPanel {
     private JButton pauseButton;
     private JButton resumeButton;
 
-    private JLabel timeLabel;
     private JLabel playerCard1;
     private JLabel playerCard2;
     private JLabel playerCardHit;
@@ -37,8 +36,10 @@ public class RoundView extends JPanel {
     private ArrayList<JLabel> playerCardLabels;
     private ArrayList<JLabel> dealerCardLabels;
 
-    private JLabel timerLabel = new JLabel("Timer");
-    int timeLeft = 50;
+    private Timer timer;
+    private JLabel timerLabel ;
+    int duration = 30;
+    int  timeLeft;
 
     public RoundView (final Controller controller){
         super();
@@ -55,14 +56,14 @@ public class RoundView extends JPanel {
         pauseButton = new JButton("Pause");
         resumeButton = new JButton("Resume");
 
-
+        timerLabel =  new JLabel("Time left: 30 ");
 
         playerHand = controller.getGame().getPlayerHand();
         dealerHand = controller.getGame().getDealerHand();
 
         setTimer();
         setBottomPanel();
-        setDealerCardPanel();
+        setTopPanel();
 
         add(topPanel);
         add(bottomPanel);
@@ -70,12 +71,15 @@ public class RoundView extends JPanel {
 
     }
 
+    public Timer getTimer(){
+        return timer;
+    }
 
     public void setBottomPanel(){
         bottomPanel.setLayout(null);
         bottomPanel.setBackground(new Color(0,122,0));
 
-        timeLabel =
+
 
         playerLabel = new JLabel("Player: " +playerHand.getValue() );
         playerLabel.setBounds(780,350,100,50);
@@ -92,14 +96,27 @@ public class RoundView extends JPanel {
         pauseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 controller.pausePressed();
+                hitButton.setEnabled(false);
+                stayButton.setEnabled(false);
+                pauseButton.setEnabled(false);
+                resumeButton.setEnabled(true);
+
+
             }
         });
 
         resumeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 controller.resumePressed();
+                hitButton.setEnabled(true);
+                stayButton.setEnabled(true);
+                resumeButton.setEnabled(false);
+                pauseButton.setEnabled(true);
+
             }
         });
 
@@ -123,20 +140,7 @@ public class RoundView extends JPanel {
         stayButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int gameResult = controller.stayPressed();
-                setDealersCardPositions();
-                topPanel.validate();
-                dealerLabel.setText("Dealer: " + dealerHand.getValue());
-                if(gameResult == 0){
-                    JOptionPane.showMessageDialog(bottomPanel.getParent(),"You are busted!!! GAME OVER!");
-                    controller.roundFinished();
-                }else if(gameResult == 1){
-                    JOptionPane.showMessageDialog(bottomPanel.getParent(),"Congrats, You Win!!!");
-                    controller.roundFinished();
-                }else{
-                    JOptionPane.showMessageDialog(bottomPanel.getParent(),"Game Tied!!!");
-                    controller.gameTied();
-                }
+               stay();
             }
         });
 
@@ -158,7 +162,7 @@ public class RoundView extends JPanel {
 
         playerCardLabels.add(playerCard1);
         playerCardLabels.add(playerCard2);
-        bottomPanel.add(timerLabel);
+
 
         bottomPanel.add(hitButton);
         bottomPanel.add(stayButton);
@@ -168,29 +172,51 @@ public class RoundView extends JPanel {
     public void setTimer(){
         ActionListener taskPerformer = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                timeLeft--;
-                timerLabel.setText("" + timeLeft);
+                duration--;
+                timerLabel.setText("Time Left: " + duration);
+                if(duration ==0){
+                    stay();
+                }
             }
         };
-        Timer timer = new Timer(1000 ,taskPerformer);
-        //timer.setRepeats(false);
+         timer = new Timer(1000 ,taskPerformer);
         timer.start();
     }
 
+    private void stay() {
+        int gameResult = controller.stayPressed();
+        setDealersCardPositions();
+        topPanel.validate();
+        dealerLabel.setText("Dealer: " + dealerHand.getValue());
+        if(gameResult == 0){
+            JOptionPane.showMessageDialog(bottomPanel.getParent(),"You are busted!!! GAME OVER!");
+            controller.roundFinished();
+        }else if(gameResult == 1){
+            JOptionPane.showMessageDialog(bottomPanel.getParent(),"Congrats, You Win!!!");
+            controller.roundFinished();
+        }else{
+            JOptionPane.showMessageDialog(bottomPanel.getParent(),"Game Tied!!!");
+            controller.gameTied();
+        }
+    }
 
-    public void setDealerCardPanel() {
+
+    public void setTopPanel() {
         topPanel.setLayout(null);
         topPanel.setBackground(new Color(0, 122, 0));
         dealerLabel = new JLabel("Dealer: ");
         dealerLabel.setBounds(780,5,100,16);
 
+        timerLabel.setBounds(50,10,100,20);
+        topPanel.add(timerLabel);
         topPanel.add(dealerLabel);
 
-        pauseButton = new JButton("Pause");
+
         pauseButton.setBounds(1160,66,100,25);
 
-        resumeButton = new JButton("Resume");
+
         resumeButton.setBounds(1160,91,100,25);
+        resumeButton.setEnabled(false);
 
         dealerCard0 = new JLabel();
         dealerCard1 = new JLabel();

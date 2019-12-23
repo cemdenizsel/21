@@ -19,12 +19,13 @@ public class Controller {
 
     private Thread thread;
 
+    private Timer timer;
 
 
     public Controller(Game game) {
         this.game = game;
         this.view = new View(this);
-        thread = new Thread();
+
     }
 
     public int getTotal() {
@@ -57,6 +58,7 @@ public class Controller {
             view.setToRoundView();
         }
     }
+
 
     public Game getGame() {
         return game;
@@ -127,10 +129,13 @@ public class Controller {
     }
 
     public void pausePressed() {
+        timer = view.getRoundView().getTimer();
+        timer.stop();
 
     }
 
     public void resumePressed() {
-
+        timer.start();
     }
 }
+
