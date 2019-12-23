@@ -45,11 +45,10 @@ public class StartView extends JPanel {
         add(startButton,gridBagConstraints);
         add(exitButton,gridBagConstraints);
         setVisible(true);
-
     }
 
 
-    public JButton getStartButton() { return startButton;}
+    public JButton getStartButton() { return startButton; }
 
     public JButton getExitButton() { return exitButton; }
 

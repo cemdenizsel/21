@@ -123,4 +123,10 @@ public class Controller {
     }
 
 
+    public void pausePressed() {
+
+    }
+
+    public void resumePressed() {
+    }
 }
