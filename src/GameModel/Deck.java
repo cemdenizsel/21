@@ -26,9 +26,7 @@ public class Deck {
         }
     }
 
-    public ArrayList<Card> getDeck(){
-        return deck;
-    }
+    public ArrayList<Card> getDeck() { return deck; }
 
     public Card removeRandomCard(){
 
