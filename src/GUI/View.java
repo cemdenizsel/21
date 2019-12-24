@@ -17,7 +17,7 @@ public class View extends JFrame {
         this.controller = controller;
 
         startView = new StartView(controller);
-        sessionView = new SessionView(controller);
+
 
 
         setTitle("Blackjack");
@@ -58,6 +58,7 @@ public class View extends JFrame {
 
     public void setToSessionView(){
 
+        sessionView = new SessionView(controller);
         remove(getContentPane());
         repaint();
         setContentPane(sessionView);

@@ -25,6 +25,7 @@ public class SessionView extends JPanel {
     SessionView(final Controller controller){
         super();
         this.controller = controller;
+
         this.backOfCard = new ImageIcon("resources\\blue.png");
 
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));

@@ -36,8 +36,8 @@ public class Controller {
     }
 
     public void startPressed() throws IOException {
+        game.setTotal(500);
         view.setToSessionView();
-
     }
 
     public void exitPressed() {
@@ -80,6 +80,7 @@ public class Controller {
 
     public void hitPressed() {
         game.hit();
+        game.getPlayerHand().adjustForAce();
         playersValue = game.getPlayerHand().getValue();
 
     }
@@ -138,6 +139,7 @@ public class Controller {
     public int stayPressed() {
 
         game.setDealerHand();
+        game.getDealerHand().adjustForAce();
         dealersValue = game.getDealerHand().getValue();
         playersValue = game.getPlayerHand().getValue();
 

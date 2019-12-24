@@ -30,6 +30,8 @@ public class Game {
 
     public int getTotal() { return total; }
 
+    public void setTotal(int total) { this.total = total ; }
+
     public void addToTotal(int bet) { this.total += bet; }
 
     public void hit(){

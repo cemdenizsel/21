@@ -61,9 +61,9 @@ public class StartView extends JPanel {
     }
 
     public void updateTotal(){
-        if(controller.getTotal()>500){
-        maxScore = controller.getTotal();
-        highestScoreLabel.setText("Highest Score: "+ maxScore);
+        if(controller.getTotal()>=controller.getHighestScore()){
+            maxScore = controller.getTotal();
+            highestScoreLabel.setText("Highest Score: "+ maxScore);
         }
     }
 
