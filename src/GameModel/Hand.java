@@ -37,6 +37,8 @@ public class Hand {
 
     public void setValue(int value) { this.value = value; }
 
+    public void setAces(int value) { this.numberOfAces = value; }
+
     public ArrayList<Card> getHand() {
         return hand;
     }

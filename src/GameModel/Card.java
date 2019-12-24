@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.util.Map;
 
 public class Card {
-    private boolean face;
+
     private String suit;
     private int value;
     private ImageIcon image;
@@ -18,7 +18,21 @@ public class Card {
         this.value = values.get(rank);
         this.image = image;
     }
+    public Card(String suit, String rank){
+        this.suit = suit;
+        this.rank = rank;
+        this.value = values.get(rank);
+    }
 
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "suit='" + suit + '\'' +
+                ", value=" + value +
+                ", rank='" + rank + '\'' +
+                '}';
+    }
 
     public int getValue() { return value; }
 

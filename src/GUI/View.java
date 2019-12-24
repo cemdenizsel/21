@@ -1,7 +1,6 @@
 package GUI;
 
 import Controller.Controller;
-import GameModel.Game;
 
 import javax.swing.*;
 
@@ -31,6 +30,7 @@ public class View extends JFrame {
         JDialog.setDefaultLookAndFeelDecorated(true);
         int response = JOptionPane.showConfirmDialog(null, "Are you older than 18 years old?", "Validation",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
         if (response == JOptionPane.NO_OPTION) {
             System.exit(0);
         } else if (response == JOptionPane.YES_OPTION) {

@@ -25,10 +25,13 @@ public class Controller {
 
     public Controller(Game game) {
         this.game = game;
-        this.view = new View(this);
+
 
         highscoreTxt = new File("highscore.txt");
 
+    }
+    public void initView(){
+        this.view = new View(this);
     }
 
     public int getTotal() {
@@ -38,6 +41,8 @@ public class Controller {
     public void startPressed() throws IOException {
         game.setTotal(500);
         view.setToSessionView();
+        playersValue = 0;
+        dealersValue = 0;
     }
 
     public void exitPressed() {
@@ -86,7 +91,8 @@ public class Controller {
     }
 
     public int checkWin() {
-
+        playersValue = game.getPlayerHand().getValue();
+        dealersValue = game.getDealerHand().getValue();
         if (playersValue > 21)
         {
 
@@ -128,6 +134,7 @@ public class Controller {
     }
 
     public boolean checkPlayerNotBusted(){
+        playersValue = game.getPlayerHand().getValue();
         return !(playersValue>21);
     }
 

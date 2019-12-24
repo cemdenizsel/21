@@ -9,6 +9,7 @@ public class Game {
 
     public Game()  throws IOException {
 
+
     }
 
     public void dealHands() throws IOException{
@@ -18,11 +19,13 @@ public class Game {
     }
 
     public void bet(int bet) {
-        if(bet <= total)
+        if(bet <= total && bet > 0)
             total -= bet;
     }
 
     public Hand getPlayerHand() { return playerHand; }
+
+    public void setPlayerHand(Card c) { playerHand.drawCard(c); }
 
     public Hand getDealerHand() { return dealerHand; }
 
