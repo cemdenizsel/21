@@ -5,7 +5,6 @@ import GameModel.Game;
 import GameModel.Hand;
 import org.junit.Test;
 
-import java.awt.*;
 import java.io.IOException;
 
 import static org.junit.Assert.*;
@@ -48,61 +47,61 @@ public class ControllerTest {
         assertFalse(controller.checkPlayerNotBusted());
 
     }
-    @Test
-    public void startPressedTest() throws IOException {
-        Game game = new Game();
-        Controller controller = new Controller(game);
-        controller.initView();
-        controller.startPressed();
-        assertEquals(500,game.getTotal());
+//    @Test
+//    public void startPressedTest() throws IOException {
+//        Game game = new Game();
+//        Controller controller = new Controller(game);
+//        controller.initView();
+//        controller.startPressed();
+//        assertEquals(500,game.getTotal());
+//
+//
+//    }
+
+//    @Test
+//    public void betPressedTest() throws IOException, AWTException {
+//        Game game = new Game();
+//        Controller controller = new Controller(game);
+//        controller.initView();
+//
+//
+//        controller.startPressed();
+//        controller.betPressed(600);
+//        assertEquals(500,game.getTotal());
+//
+//        controller.betPressed(100);
+//        assertEquals(400,game.getTotal());
+//
+//        game.setTotal(500);
+//        controller.betPressed(-100);
+//        assertEquals(500,game.getTotal());
+//
+//        game.setTotal(500);
+//        controller.betPressed(0);
+//        assertEquals(500,game.getTotal());
+//    }
 
 
-    }
-
-    @Test
-    public void betPressedTest() throws IOException, AWTException {
-        Game game = new Game();
-        Controller controller = new Controller(game);
-        controller.initView();
-
-
-        controller.startPressed();
-        controller.betPressed(600);
-        assertEquals(500,game.getTotal());
-
-        controller.betPressed(100);
-        assertEquals(400,game.getTotal());
-
-        game.setTotal(500);
-        controller.betPressed(-100);
-        assertEquals(500,game.getTotal());
-
-        game.setTotal(500);
-        controller.betPressed(0);
-        assertEquals(500,game.getTotal());
-    }
-
-
-
-    @Test
-    public void pausePressedTest() throws IOException {
-        Game game = new Game();
-        Controller controller = new Controller(game);
-        controller.initView();
-        controller.betPressed(30);
-
-        assertEquals(3,controller.getRemainingPauses());
-
-        controller.pausePressed();
-        assertEquals(2,controller.getRemainingPauses());
-
-        controller.pausePressed();
-        assertEquals(1,controller.getRemainingPauses());
-
-        controller.pausePressed();
-        assertEquals(0,controller.getRemainingPauses());
-
-    }
+//
+//    @Test
+//    public void pausePressedTest() throws IOException {
+//        Game game = new Game();
+//        Controller controller = new Controller(game);
+//        controller.initView();
+//        controller.betPressed(30);
+//
+//        assertEquals(3,controller.getRemainingPauses());
+//
+//        controller.pausePressed();
+//        assertEquals(2,controller.getRemainingPauses());
+//
+//        controller.pausePressed();
+//        assertEquals(1,controller.getRemainingPauses());
+//
+//        controller.pausePressed();
+//        assertEquals(0,controller.getRemainingPauses());
+//
+//    }
 
     @Test
     public void checkWinTest() throws IOException {
