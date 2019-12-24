@@ -63,7 +63,7 @@ public class Controller {
         this.betAmount = betAmount;
         if (betAmount > getTotal()) {
             JOptionPane.showMessageDialog(view, "You total is lower than your bet, Please lower your bet amount");
-        }else if(betAmount < 0){
+        }else if(betAmount <= 0){
             JOptionPane.showMessageDialog(view,"Please enter a positive number!!!");
         }
         else {
